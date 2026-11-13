@@ -1,0 +1,30 @@
+# Render Blueprint: one web service that builds the React client and serves it
+# from Express (same URL for the UI and /api, so no CORS setup is needed).
+# Render dashboard → New → Blueprint → pick this repo. Secrets are asked for on first deploy.
+services:
+  - type: web
+    name: contractiq
+    runtime: node
+    plan: free
+    buildCommand: npm ci --prefix client && npm run build --prefix client && npm ci --omit=dev --prefix server
+    startCommand: npm start --prefix server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: MONGODB_URI
+        sync: false        # secret: you paste it in the dashboard
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CHAT_MODEL
+        value: gemini-3.5-flash-lite
+      - key: EMBEDDING_MODEL
+        value: gemini-embedding-2
+      - key: EMBEDDING_DIMENSIONS
+        value: "768"
+      - key: RERANK
+        value: "off"      # "on" = rerank retrieved clauses before answering (extra Gemini call)
+      - key: AUTO_ANALYZE
+        value: "on"       # analyse clauses automatically after upload ("off" = analyse on demand)
+      - key: PROCESSING_CONCURRENCY
+        value: "2"        # contracts processed at the same time in the background

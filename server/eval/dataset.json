@@ -1,0 +1,234 @@
+{
+  "description": "Questions over the five sample contracts in samples/ (upload them with their default titles). 'expected' = sections that contain the answer; 'mustContain' = groups of acceptable phrasings, every group must appear in the answer; 'absent' (unanswerable questions only) = terms that must NOT appear in the contracts, checked by the offline test. Questions about samples you have not uploaded are skipped.",
+  "questions": [
+    {
+      "id": "termination-notice",
+      "question": "How much notice is needed to terminate for convenience?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [{ "contract": "vendor-a-2025", "section": "10" }],
+      "mustContain": [["90 days", "ninety"]]
+    },
+    {
+      "id": "cancel-wording",
+      "question": "Can we get out of the deal early, and how?",
+      "contracts": ["vendor-a-2026"],
+      "expected": [{ "contract": "vendor-a-2026", "section": "10" }],
+      "mustContain": [["180"]]
+    },
+    {
+      "id": "liability-cap",
+      "question": "What is the cap on liability?",
+      "contracts": ["vendor-a-2026"],
+      "expected": [{ "contract": "vendor-a-2026", "section": "9" }],
+      "mustContain": [["6 months", "six (6) months", "six months"]]
+    },
+    {
+      "id": "renewal",
+      "question": "Does the agreement renew automatically?",
+      "contracts": ["vendor-b-2025"],
+      "expected": [{ "contract": "vendor-b-2025", "section": "1" }],
+      "mustContain": [["no automatic renewal", "not renew automatically", "does not", "written renewal"]]
+    },
+    {
+      "id": "breach-notice",
+      "question": "How quickly must a personal data breach be reported?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [{ "contract": "vendor-a-2025", "section": "6" }],
+      "mustContain": [["72 hours", "seventy-two"]]
+    },
+    {
+      "id": "iso-keyword",
+      "question": "ISO/IEC 27001",
+      "contracts": [],
+      "expected": [{ "contract": "vendor-b-2025", "section": "4" }],
+      "mustContain": [["27001"]]
+    },
+    {
+      "id": "fee-amount",
+      "question": "What is the annual fee in EUR?",
+      "contracts": ["vendor-a-2026"],
+      "expected": [{ "contract": "vendor-a-2026", "section": "3" }],
+      "mustContain": [["138,000"]]
+    },
+    {
+      "id": "uptime",
+      "question": "What availability percentage is committed?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [{ "contract": "vendor-a-2025", "section": "4" }],
+      "mustContain": [["99.5"]]
+    },
+    {
+      "id": "governing-law-both",
+      "question": "Which law governs each contract?",
+      "contracts": ["vendor-a-2025", "vendor-b-2025"],
+      "expected": [
+        { "contract": "vendor-a-2025", "section": "11" },
+        { "contract": "vendor-b-2025", "section": "9" }
+      ],
+      "mustContain": [["England"], ["Delaware"]]
+    },
+    {
+      "id": "liability-both",
+      "question": "Compare the liability caps.",
+      "contracts": ["vendor-a-2025", "vendor-b-2025"],
+      "expected": [
+        { "contract": "vendor-a-2025", "section": "9" },
+        { "contract": "vendor-b-2025", "section": "7" }
+      ],
+      "mustContain": [["12 months", "twelve (12) months", "twelve months"], ["2x", "two times"]]
+    },
+    {
+      "id": "ai-clause",
+      "question": "Can the supplier train AI models on our data?",
+      "contracts": ["vendor-a-2026"],
+      "expected": [{ "contract": "vendor-a-2026", "section": "11" }],
+      "mustContain": [["consent"]]
+    },
+    {
+      "id": "unanswerable-ceo",
+      "question": "Who is the CEO of Northwind Telemetry?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [],
+      "unanswerable": true
+    },
+    {
+      "id": "unanswerable-sla-b",
+      "question": "What uptime percentage does the provider guarantee?",
+      "contracts": ["vendor-b-2025"],
+      "expected": [],
+      "unanswerable": true
+    },
+    {
+      "id": "late-interest",
+      "question": "What interest is charged on overdue invoices?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [{ "contract": "vendor-a-2025", "section": "3" }],
+      "mustContain": [["1%"]]
+    },
+    {
+      "id": "price-cap",
+      "question": "By how much can fees go up at renewal?",
+      "contracts": ["vendor-a-2026"],
+      "expected": [{ "contract": "vendor-a-2026", "section": "3" }],
+      "mustContain": [["5%", "five percent"]]
+    },
+    {
+      "id": "data-export",
+      "question": "What happens to our data after the contract ends?",
+      "contracts": ["vendor-a-2025"],
+      "expected": [{ "contract": "vendor-a-2025", "section": "10" }],
+      "mustContain": [["30 days", "thirty (30) days", "thirty days"], ["delet"]]
+    },
+    {
+      "id": "b-payment-terms",
+      "question": "When are invoices due and how often are we billed?",
+      "contracts": ["vendor-b-2025"],
+      "expected": [{ "contract": "vendor-b-2025", "section": "2" }],
+      "mustContain": [["30 days", "thirty (30) days", "thirty days"], ["quarterly"]]
+    },
+    {
+      "id": "non-renewal-versions",
+      "question": "Compare the non-renewal notice in the 2025 and 2026 Vendor A contracts.",
+      "contracts": ["vendor-a-2025", "vendor-a-2026"],
+      "expected": [
+        { "contract": "vendor-a-2025", "section": "2" },
+        { "contract": "vendor-a-2026", "section": "2" }
+      ],
+      "mustContain": [["60 days", "sixty (60) days"], ["90 days", "ninety (90) days"]]
+    },
+    {
+      "id": "fee-change",
+      "question": "How did the annual fee change between the 2025 and 2026 Vendor A contracts?",
+      "contracts": ["vendor-a-2025", "vendor-a-2026"],
+      "expected": [
+        { "contract": "vendor-a-2025", "section": "3" },
+        { "contract": "vendor-a-2026", "section": "3" }
+      ],
+      "mustContain": [["120,000"], ["138,000"]]
+    },
+    {
+      "id": "c-breach-notice",
+      "question": "How quickly must the host report a personal data breach?",
+      "contracts": ["vendor-c-2025"],
+      "expected": [{ "contract": "vendor-c-2025", "section": "6" }],
+      "mustContain": [["24 hours", "twenty-four (24) hours", "twenty-four hours"]]
+    },
+    {
+      "id": "c-soc2",
+      "question": "SOC 2 Type II report",
+      "contracts": [],
+      "expected": [{ "contract": "vendor-c-2025", "section": "6" }],
+      "mustContain": [["SOC 2"]]
+    },
+    {
+      "id": "c-cap-data",
+      "question": "What is the liability cap for data protection breaches?",
+      "contracts": ["vendor-c-2025"],
+      "expected": [{ "contract": "vendor-c-2025", "section": "10" }],
+      "mustContain": [["1,000,000"]]
+    },
+    {
+      "id": "c-getout",
+      "question": "Can we cancel early, and when?",
+      "contracts": ["vendor-c-2025"],
+      "expected": [{ "contract": "vendor-c-2025", "section": "11" }],
+      "mustContain": [["60 days", "sixty (60) days"], ["12 months", "twelve (12) months", "first year"]]
+    },
+    {
+      "id": "d-nonsolicit",
+      "question": "Can we hire the consultant's staff?",
+      "contracts": ["vendor-d-2025"],
+      "expected": [{ "contract": "vendor-d-2025", "section": "7" }],
+      "mustContain": [["12 months", "twelve (12) months"]]
+    },
+    {
+      "id": "d-insurance",
+      "question": "What insurance must the consultant carry?",
+      "contracts": ["vendor-d-2025"],
+      "expected": [{ "contract": "vendor-d-2025", "section": "11" }],
+      "mustContain": [["2,000,000"]]
+    },
+    {
+      "id": "d-exit-early",
+      "question": "Can the consultant walk away from the project?",
+      "contracts": ["vendor-d-2025"],
+      "expected": [{ "contract": "vendor-d-2025", "section": "10" }],
+      "mustContain": [["45 days", "forty-five (45) days"]]
+    },
+    {
+      "id": "termination-notice-all",
+      "question": "Compare the notice needed to terminate for convenience across all four contracts.",
+      "contracts": ["vendor-a-2025", "vendor-b-2025", "vendor-c-2025", "vendor-d-2025"],
+      "expected": [
+        { "contract": "vendor-a-2025", "section": "10" },
+        { "contract": "vendor-b-2025", "section": "8" },
+        { "contract": "vendor-c-2025", "section": "11" },
+        { "contract": "vendor-d-2025", "section": "10" }
+      ],
+      "mustContain": [["90 days", "ninety (90) days"], ["30 days", "thirty (30) days"], ["60 days", "sixty (60) days"], ["14 days", "fourteen (14) days"]]
+    },
+    {
+      "id": "kw-munich",
+      "question": "Munich",
+      "contracts": [],
+      "expected": [{ "contract": "vendor-d-2025", "section": "12" }],
+      "mustContain": [["Munich"]]
+    },
+    {
+      "id": "unanswerable-force-majeure",
+      "question": "Is there a force majeure clause?",
+      "contracts": ["vendor-c-2025"],
+      "expected": [],
+      "unanswerable": true,
+      "absent": ["force majeure"]
+    },
+    {
+      "id": "unanswerable-escrow",
+      "question": "Does the consultant have to provide source code escrow?",
+      "contracts": ["vendor-d-2025"],
+      "expected": [],
+      "unanswerable": true,
+      "absent": ["escrow"]
+    }
+  ]
+}

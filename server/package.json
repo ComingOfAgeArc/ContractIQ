@@ -1,0 +1,33 @@
+{
+  "name": "contractiq-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env index.js",
+    "start": "node --env-file-if-exists=.env index.js",
+    "test:pdf": "node scripts/testPdf.js",
+    "test:chunks": "node scripts/testChunks.js",
+    "test:embed": "node --env-file-if-exists=.env scripts/testEmbeddings.js",
+    "create:index": "node --env-file-if-exists=.env scripts/createSearchIndexes.js",
+    "test:diff": "node scripts/testDiff.js",
+    "test": "node --test \"test/*.test.js\"",
+    "eval": "node --env-file-if-exists=.env scripts/evaluate.js",
+    "flags": "node --env-file-if-exists=.env scripts/recomputeFlags.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "cors": "^2.8.6",
+    "diff": "^9.0.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "mongodb": "^7.9.0",
+    "mongoose": "^9.10.2",
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5"
+  }
+}
